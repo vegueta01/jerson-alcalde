@@ -23,4 +23,4 @@ jobs:
       run: npm install
 
     - name: Deploy to Page
-      run: npm run deploy-page
+      run: npm run deploy
