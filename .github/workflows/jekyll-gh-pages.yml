@@ -24,8 +24,8 @@ jobs:
         with:
           source: ./
           destination: ./_site
-      # - name: Upload artifact
-      #   uses: actions/upload-pages-artifact@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
 
   # Deployment job
   deploy:
@@ -40,7 +40,7 @@ jobs:
         uses: actions/deploy-pages@v2  
 
 
-
+        
   # deploy:
   #   runs-on: ubuntu-latest
 
@@ -74,8 +74,3 @@ jobs:
     #   env:
     #     user_name: 'github-actions[bot]'
     #     user_email: 'github-actions[bot]@users.noreply.github.com'
-    #     github_token: ${{ secrets.TOKEN_GITHUB }}
-    #     repository: ${{ github.repository }}
-
-    # env:
-    #   GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
