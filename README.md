@@ -3,8 +3,15 @@ Pagina Web para la candidatura de Jerson
 
 ## Correr el repositorio en local
 
-npm i
+## install
+```
+$ npm i 
+```
 
-npm run start
+## Development
+
+```
+$ npm start
+```
 
 http://localhost:8000

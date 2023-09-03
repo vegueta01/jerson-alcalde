@@ -1,0 +1,26 @@
+
+name: Deploy to Page on Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # Puedes ajustar la versión de Node.js según tus necesidades
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Deploy to Page
+      run: npm run deploy-page
