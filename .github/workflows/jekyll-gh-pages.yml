@@ -27,5 +27,19 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
-    - name: Deploy to Page
-      run: npm run deploy
+    # - name: Deploy to Page
+    #   run: npm run deploy
+    - name: Deploy
+      run: |
+        git config --global user.name $user_name
+        git config --global user.email $user_email
+        git remote set-url origin https://${github_token}@github.com/${repository}
+        npm run deploy
+      env:
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        github_token: ${{ secrets.TOKEN_GITHUB }}
+        repository: ${{ github.repository }}
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
