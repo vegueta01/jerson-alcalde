@@ -58,42 +58,42 @@ jobs:
 
     # - name: Deploy to Page
     #   run: npm run deploy
-    - name: Deploy
-      run: |
-        echo 'felipe'
-        echo ${github_token}
-        echo ${repository}
-        git config --global user.name $user_name
-        echo condifure user_name: $user_name
-        git config --global user.email $user_email
-        echo condifure user_email: $user_email
-        git remote set-url origin https://${github_token}@github.com/${repository}
-        echo configure origin https://${github_token}@github.com/${repository}
-        npm run deploy
-      env:
-        user_name: 'vegueta01'
-        user_email: 'felipe.buitrago.betancourt@gmail.com'
-        github_token: ${{ secrets.TOKEN_GITHUB }}
-        repository: ${{ github.repository }}
+    # - name: Deploy
+    #   run: |
+    #     echo 'felipe'
+    #     echo ${github_token}
+    #     echo ${repository}
+    #     git config --global user.name $user_name
+    #     echo condifure user_name: $user_name
+    #     git config --global user.email $user_email
+    #     echo condifure user_email: $user_email
+    #     git remote set-url origin https://${github_token}@github.com/${repository}
+    #     echo configure origin https://${github_token}@github.com/${repository}
+    #     npm run deploy
+    #   env:
+    #     user_name: 'vegueta01'
+    #     user_email: 'felipe.buitrago.betancourt@gmail.com'
+    #     github_token: ${{ secrets.TOKEN_GITHUB }}
+    #     repository: ${{ github.repository }}
 
 
-  # deploy:
-  #   # Add a dependency to the build job
-  #   needs: build
+  deploy:
+    # Add a dependency to the build job
+    needs: build
 
-  #   # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-  #   permissions:
-  #     pages: write      # to deploy to Pages
-  #     id-token: write   # to verify the deployment originates from an appropriate source
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
 
-  #   # Deploy to the github-pages environment
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-  #   # Specify runner + deployment step
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v2 # or the latest "vX.X.X" version tag for this action
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2 # or the latest "vX.X.X" version tag for this action
