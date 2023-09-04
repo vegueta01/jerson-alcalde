@@ -44,6 +44,7 @@ jobs:
         
   build:
     runs-on: ubuntu-latest
+
     permissions:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
@@ -51,7 +52,8 @@ jobs:
     # Deploy to the github-pages environment
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: 'http://vegueta01.github.io/jerson-alcalde'
+      
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -65,7 +67,6 @@ jobs:
       run: npm install
 
     - name: Deploy to GitHub Pages
-      id: deployment
       uses: actions/deploy-pages@v2 # or the latest "vX.X.X" version tag for this action
 
     # - name: Deploy to Page
