@@ -42,7 +42,7 @@
   ],
   "scripts": {
     "predeploy":"rm -rf dist && npm run build",
-    "deploy": "cp CNAME dist && gh-pages -d dist",
+    "deploy": "gh-pages -d dist",
     "build": "atool-build && cp index.html dist",
     "lint": "",
     "eslint-fix": "eslint --fix src/ --ext .js,.jsx",
