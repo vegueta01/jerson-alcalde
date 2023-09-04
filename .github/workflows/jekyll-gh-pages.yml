@@ -71,8 +71,8 @@ jobs:
         echo configure origin https://${github_token}@github.com/${repository}
         npm run deploy
       env:
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
+        user_name: 'vegueta01'
+        user_email: 'felipe.buitrago.betancourt@gmail.com'
         github_token: ${{ secrets.TOKEN_GITHUB }}
         repository: ${{ github.repository }}
 
