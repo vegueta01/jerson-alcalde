@@ -130,7 +130,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -144,6 +144,8 @@ jobs:
     - run: npm run build --if-present
     - name: Deploy with gh-pages
       run: |
+        git config --global user.email "felipe.buitrago.betancourt@gmail.com"
+        git config --global user.name "Felipe"
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         npm run deploy
       env:
