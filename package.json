@@ -41,7 +41,6 @@
     "lint"
   ],
   "scripts": {
-    "predeploy":"rm -rf dist && npm run build",
     "deploy": "gh-pages -d dist",
     "build": "atool-build && cp index.html dist",
     "lint": "",
