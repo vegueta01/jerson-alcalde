@@ -63,10 +63,12 @@ jobs:
         echo 'felipe'
         echo ${github_token}
         echo ${repository}
-        echo 'https://${github_token}@github.com/${repository}'
         git config --global user.name $user_name
+        echo condifure user_name: $user_name
         git config --global user.email $user_email
+        echo condifure user_email: $user_email
         git remote set-url origin https://${github_token}@github.com/${repository}
+        echo configure origin https://${github_token}@github.com/${repository}
         npm run deploy
       env:
         user_name: 'github-actions[bot]'
