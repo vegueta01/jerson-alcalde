@@ -145,8 +145,8 @@ jobs:
     - name: Deploy with gh-pages
       run: |
         git config --global user.email "felipe.buitrago.betancourt@gmail.com"
-        git config --global user.name "Felipe"
+        git config --global user.name "vegueta01"
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         npm run deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
